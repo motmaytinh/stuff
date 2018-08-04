@@ -1,10 +1,17 @@
 import argparse
 
 
-def recursive_fib(n):
+def iterative_fib(n):
+    f1 = 1
+    f2 = 1
     if n <= 2:
-        return 1
-    return recursive_fib(n-2) + recursive_fib(n-1)
+        return f1
+    f3 = f2 + f1
+    for n in range(3, n, 1):
+        f1 = f2
+        f2 = f3
+        f3 = f2 + f1
+    return f3
 
 
 if __name__ == "__main__":
@@ -13,4 +20,4 @@ if __name__ == "__main__":
     parser.add_argument('integers', metavar='N', type=int,
                         default=10, help='The nth fibonacci.')
     args = parser.parse_args()
-    print(recursive_fib(args.integers))
+    print(iterative_fib(args.integers))
