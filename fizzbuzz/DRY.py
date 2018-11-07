@@ -1,15 +1,19 @@
 #Don't repeat your self or Single source of truth
+FIZZ = 'Fizz'
+BUZZ = 'Buzz'
+
+divisible_by = lambda i, a: i % a == 0
 
 def main():
     for i in range(101):
-        fizz = i % 3 == 0
-        buzz = i % 5 == 0
+        fizz = divisible_by(i,3) 
+        buzz = divisible_by(i,5) 
         if fizz and buzz:
-            print("FizzBuzz")
+            print(FIZZ + BUZZ)
         elif fizz:
-            print("Fizz")
+            print(FIZZ)
         elif buzz:
-            print("Buzz")
+            print(BUZZ)
         else:
             print(i)
 
